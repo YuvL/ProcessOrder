@@ -15,13 +15,13 @@ namespace ProcessOrder.ViewModels
     public class MainWindowViewModel : BindableBase
     {
         public DelegateCommand AddOrderCommand { get; private set; }
-        public InteractionRequest<AddOrderViewModel> AddOrEditRequest { get; } = new InteractionRequest<AddOrderViewModel>();
-        public InteractionRequest<IConfirmation> ConfirmationRequest { get; } = new InteractionRequest<IConfirmation>();
         public DelegateCommand DeleteOrderCommand { get; private set; }
         public DelegateCommand EditOrderCommand { get; private set; }
+        public DelegateCommand ProcessOrderCommand { get; private set; }
+        public InteractionRequest<AddOrderViewModel> AddOrEditRequest { get; } = new InteractionRequest<AddOrderViewModel>();
+        public InteractionRequest<IConfirmation> ConfirmationRequest { get; } = new InteractionRequest<IConfirmation>();
         public bool IsLoading { get { return _isLoading; } private set { SetProperty(ref _isLoading, value); } }
         public List<OrderViewModelBase> Orders { get { return _orders; } private set { SetProperty(ref _orders, value); } }
-        public DelegateCommand ProcessOrderCommand { get; private set; }
         public OrderViewModelBase SelectedOrder { get { return _selectedOrder; } set { SetProperty(ref _selectedOrder, value); } }
         public DelegateCommand ShowOrdersCommand { get; private set; }
 
@@ -38,13 +38,26 @@ namespace ProcessOrder.ViewModels
 
         private void InitCommands()
         {
-            ShowOrdersCommand = DelegateCommand.FromAsyncHandler(ShowOrdersExecute, () => !IsLoading).ObservesProperty(() => IsLoading);
+            ShowOrdersCommand = DelegateCommand
+                .FromAsyncHandler(ShowOrdersExecute, () => !IsLoading)
+                .ObservesProperty(() => IsLoading);
+
             AddOrderCommand = DelegateCommand.FromAsyncHandler(AddOrderExecute);
-            EditOrderCommand = DelegateCommand.FromAsyncHandler(EditOrderExecute, () => SelectedOrder != null).ObservesProperty(() => SelectedOrder);
-            DeleteOrderCommand = DelegateCommand.FromAsyncHandler(DeleteOrderExecute, () => SelectedOrder != null).ObservesProperty(() => SelectedOrder);
+
+            EditOrderCommand = DelegateCommand
+                .FromAsyncHandler(EditOrderExecute, () => SelectedOrder != null && !IsLoading)
+                .ObservesProperty(() => SelectedOrder)
+                .ObservesProperty(() => IsLoading);
+
+            DeleteOrderCommand = DelegateCommand
+                .FromAsyncHandler(DeleteOrderExecute, () => SelectedOrder != null && !IsLoading)
+                .ObservesProperty(() => SelectedOrder)
+                .ObservesProperty(() => IsLoading);
+
             ProcessOrderCommand = DelegateCommand
-                .FromAsyncHandler(ProcessOrderExecute, () => SelectedOrder != null && SelectedOrder.OrderStatus != OrderStatus.Processed)
-                .ObservesProperty(() => SelectedOrder);
+                .FromAsyncHandler(ProcessOrderExecute, () => SelectedOrder != null && SelectedOrder.OrderStatus != OrderStatus.Processed && !IsLoading)
+                .ObservesProperty(() => SelectedOrder)
+                .ObservesProperty(() => IsLoading);
         }
 
         private async Task ProcessOrderExecute()
@@ -58,6 +71,7 @@ namespace ProcessOrder.ViewModels
 
         private async Task DeleteOrderExecute()
         {
+            IsLoading = true;
             var confirmation = await ConfirmationRequest.RaiseAsync(new Confirmation
             {
                 Content = $"Вы действительно хотите удалить заказ по документу {SelectedOrder.NDoc}?",
@@ -69,10 +83,12 @@ namespace ProcessOrder.ViewModels
                 _orderService.Delete(SelectedOrder.GetOrder().Id);
                 await UpdateOrders();
             }
+            IsLoading = false;
         }
 
         private async Task EditOrderExecute()
         {
+            IsLoading = true;
             var editableOrder = _orderService.GetById(SelectedOrder.GetOrder().Id);
             var addOrderViewModel = _addOrderViewModelFactory.CreateAddOrderViewModel(editableOrder);
             var addResult = await AddOrEditRequest.RaiseAsync(addOrderViewModel);
@@ -82,10 +98,12 @@ namespace ProcessOrder.ViewModels
                 await _orderService.AddOrUpdateAsync(order);
                 await UpdateOrders();
             }
+            IsLoading = false;
         }
 
         private async Task AddOrderExecute()
         {
+            IsLoading = true;
             var addResult = await AddOrEditRequest.RaiseAsync(_addOrderViewModelFactory.CreateAddOrderViewModel());
             if (addResult.Confirmed)
             {
@@ -93,6 +111,7 @@ namespace ProcessOrder.ViewModels
                 await _orderService.AddOrUpdateAsync(order);
                 await UpdateOrders();
             }
+            IsLoading = false;
         }
 
         private async Task ShowOrdersExecute()

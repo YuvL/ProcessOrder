@@ -2,7 +2,7 @@
 {
     public enum OrderStatus
     {
-        Created,
+        New,
         Processed
     }
 }

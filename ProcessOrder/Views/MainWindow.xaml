@@ -78,9 +78,7 @@
             <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
         <StackPanel>
-            <Button Command="{Binding Path=ShowOrdersCommand}">
-                <TextBlock Text="Показать заказы" TextWrapping="Wrap"/>
-            </Button>
+            <Button Command="{Binding Path=ShowOrdersCommand}" Content="Показать заказы" Height="70" Margin="5,0,5,25"/>
             <Button Content="Добавить" Command="{Binding Path=AddOrderCommand}"/>
             <Button Content="Редактировать" Command="{Binding Path=EditOrderCommand}"/>
             <Button Content="Удалить" Command="{Binding Path=DeleteOrderCommand}"/>
