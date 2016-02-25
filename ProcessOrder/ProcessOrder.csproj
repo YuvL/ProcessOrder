@@ -137,6 +137,8 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Bootstrapper.cs" />
+    <Compile Include="ViewModels\Factories\Interfaces\IOrderProcessorFactory.cs" />
+    <Compile Include="ViewModels\OrderProcessor.cs" />
     <Compile Include="ViewModels\Orders\AddOrderViewModel.cs" />
     <Compile Include="ViewModels\Orders\BuyerOrderViewModel.cs" />
     <Compile Include="ViewModels\Factories\AddOrderViewModelFactory.cs" />
@@ -149,6 +151,7 @@
     <Compile Include="Views\AddOrderView.xaml.cs">
       <DependentUpon>AddOrderView.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Views\BoolenToVisibilityConverter.cs" />
     <Compile Include="Views\MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>

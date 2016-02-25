@@ -5,6 +5,7 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:viewModels="clr-namespace:ProcessOrder.ViewModels"
              xmlns:orders="clr-namespace:ProcessOrder.ViewModels.Orders"
+             xmlns:views="clr-namespace:ProcessOrder.Views"
              d:DataContext="{d:DesignInstance orders:AddOrderViewModel}"
              mc:Ignorable="d" 
              Height="300" Width="400">
@@ -75,8 +76,9 @@
             <RowDefinition Height="Auto"/>
         </Grid.RowDefinitions>
 
-        <TextBlock Text="Вид заказа:" Margin="0,0,10,0"/>
+        <TextBlock Text="Вид заказа:" Margin="0,0,10,0" Visibility="{Binding Path=IsEditMode, Converter={views:BoolenToVisibilityConverter IsInverse=True}}"/>
         <ComboBox ItemsSource="{Binding Path=Orders}" SelectedItem="{Binding Path=SelectedOrder}" 
+                  Visibility="{Binding Path=IsEditMode, Converter={views:BoolenToVisibilityConverter IsInverse=True}}"
                   DisplayMemberPath="Name" Grid.Row="0" Grid.Column="1"/>
         <ContentControl Grid.Row="1" Grid.ColumnSpan="2" Grid.Column="0" Margin="0,10,0,0"
                         Content="{Binding Path=SelectedOrder}"/>

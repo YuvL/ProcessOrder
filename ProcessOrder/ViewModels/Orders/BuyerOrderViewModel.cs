@@ -15,7 +15,13 @@ namespace ProcessOrder.ViewModels.Orders
 
         public override OrderBase GetOrder()
         {
-            return new BuyerOrder {Address = Address, FIO = Fio, TotalSum = TotalSum, NDoc = NDoc, Status = OrderStatus};
+            var buyerOrder = Order as BuyerOrder;
+            buyerOrder.Address = Address;
+            buyerOrder.FIO = Fio;
+            buyerOrder.TotalSum = TotalSum;
+            buyerOrder.NDoc = NDoc;
+            buyerOrder.Status = OrderStatus;
+            return buyerOrder;
         }
     }
 }

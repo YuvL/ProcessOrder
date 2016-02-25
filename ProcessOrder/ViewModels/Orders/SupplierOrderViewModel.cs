@@ -17,7 +17,14 @@ namespace ProcessOrder.ViewModels.Orders
 
         public override OrderBase GetOrder()
         {
-            return new SupplierOrder {INN = Inn, LegalAddress = LegalAddress, TotalSum = TotalSum, NDoc = NDoc, PhisicalAddress = PhisicalAddress};
+            var supplierOrder = Order as SupplierOrder;
+            supplierOrder.INN = Inn;
+            supplierOrder.LegalAddress = LegalAddress;
+            supplierOrder.PhisicalAddress = PhisicalAddress;
+            supplierOrder.TotalSum = TotalSum;
+            supplierOrder.NDoc = NDoc;
+            supplierOrder.Status = OrderStatus;
+            return supplierOrder;
         }
     }
 }

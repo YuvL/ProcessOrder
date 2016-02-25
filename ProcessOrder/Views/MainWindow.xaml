@@ -48,12 +48,15 @@
         </Style>
     </Window.Resources>
     <i:Interaction.Triggers>
-        <prism:InteractionRequestTrigger SourceObject="{Binding ConfirmationRequest, Mode=OneWay}">
+        <prism:InteractionRequestTrigger SourceObject="{Binding AddOrEditRequest, Mode=OneWay}">
             <prism:PopupWindowAction IsModal="True" CenterOverAssociatedObject="True" WindowStartupLocation="CenterOwner" >
                 <prism:PopupWindowAction.WindowContent>
                     <views:AddOrderView/>
                 </prism:PopupWindowAction.WindowContent>
             </prism:PopupWindowAction>
+        </prism:InteractionRequestTrigger>
+        <prism:InteractionRequestTrigger SourceObject="{Binding ConfirmationRequest, Mode=OneWay}">
+            <prism:PopupWindowAction IsModal="True" CenterOverAssociatedObject="True" WindowStartupLocation="CenterOwner" />
         </prism:InteractionRequestTrigger>
     </i:Interaction.Triggers>
     <Grid>
@@ -69,6 +72,7 @@
             <Button Content="Добавить" Command="{Binding Path=AddOrderCommand}"/>
             <Button Content="Редактировать" Command="{Binding Path=EditOrderCommand}"/>
             <Button Content="Удалить" Command="{Binding Path=DeleteOrderCommand}"/>
+            <Button Content="Обработать" Command="{Binding Path=ProcessOrderCommand}"/>
         </StackPanel>
         <ListBox Grid.Column="1" ItemsSource="{Binding Path=Orders}" Margin="0,0,0,0"
                  SelectedItem="{Binding Path=SelectedOrder}" 
