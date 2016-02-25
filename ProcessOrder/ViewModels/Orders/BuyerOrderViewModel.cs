@@ -1,3 +1,5 @@
+using ProcessOrder.DataService.Model;
+
 namespace ProcessOrder.ViewModels.Orders
 {
     internal class BuyerOrderViewModel : OrderViewModelBase

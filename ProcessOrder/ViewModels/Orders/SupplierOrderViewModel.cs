@@ -1,3 +1,5 @@
+using ProcessOrder.DataService.Model;
+
 namespace ProcessOrder.ViewModels.Orders
 {
     internal class SupplierOrderViewModel : OrderViewModelBase
@@ -15,7 +17,7 @@ namespace ProcessOrder.ViewModels.Orders
 
         public override OrderBase GetOrder()
         {
-            return new SupplierOrder() {INN = Inn, LegalAddress = LegalAddress, TotalSum = TotalSum, NDoc = NDoc, PhisicalAddress = PhisicalAddress};
+            return new SupplierOrder {INN = Inn, LegalAddress = LegalAddress, TotalSum = TotalSum, NDoc = NDoc, PhisicalAddress = PhisicalAddress};
         }
     }
 }

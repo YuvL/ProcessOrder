@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using Prism.Interactivity.InteractionRequest;
 using Prism.Mvvm;
+using ProcessOrder.DataService.Model;
 
 namespace ProcessOrder.ViewModels.Orders
 {

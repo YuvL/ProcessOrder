@@ -1,4 +1,6 @@
-﻿namespace ProcessOrder.ViewModels.Orders
+﻿using ProcessOrder.DataService.Model;
+
+namespace ProcessOrder.ViewModels.Orders
 {
     public abstract class OrderViewModelBase
     {

@@ -137,15 +137,15 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Bootstrapper.cs" />
-    <Compile Include="ViewModels\AddOrderViewModel.cs" />
-    <Compile Include="ViewModels\BuyerOrderViewModel.cs" />
+    <Compile Include="ViewModels\Orders\AddOrderViewModel.cs" />
+    <Compile Include="ViewModels\Orders\BuyerOrderViewModel.cs" />
     <Compile Include="ViewModels\Factories\AddOrderViewModelFactory.cs" />
     <Compile Include="ViewModels\Factories\Interfaces\IAddOrderViewModelFactory.cs" />
     <Compile Include="ViewModels\Factories\Interfaces\IOrderViewModelFactory.cs" />
     <Compile Include="ViewModels\MainWindowViewModel.cs" />
-    <Compile Include="ViewModels\OrderViewModelBase.cs" />
+    <Compile Include="ViewModels\Orders\OrderViewModelBase.cs" />
     <Compile Include="ViewModels\Factories\OrderViewModelFactory.cs" />
-    <Compile Include="ViewModels\SupplierOrderViewModel.cs" />
+    <Compile Include="ViewModels\Orders\SupplierOrderViewModel.cs" />
     <Compile Include="Views\AddOrderView.xaml.cs">
       <DependentUpon>AddOrderView.xaml</DependentUpon>
     </Compile>
@@ -184,12 +184,6 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\ProcessOrder.ORM\ProcessOrder.DataService.csproj">
-      <Project>{27E847DB-3C84-426E-AB54-740B051BB692}</Project>
-      <Name>ProcessOrder.DataService</Name>
-    </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
     <Content Include="Resources\client2_6501.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
@@ -210,6 +204,12 @@
       <ProductName>.NET Framework 3.5 SP1</ProductName>
       <Install>false</Install>
     </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\ProcessOrder.DataService\ProcessOrder.DataService.csproj">
+      <Project>{27E847DB-3C84-426E-AB54-740B051BB692}</Project>
+      <Name>ProcessOrder.DataService</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
