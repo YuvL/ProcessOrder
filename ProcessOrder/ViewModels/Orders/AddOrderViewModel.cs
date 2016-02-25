@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using Prism.Interactivity.InteractionRequest;
 using Prism.Mvvm;
-using ProcessOrder.DataService.Model;
+using ProcessOrder.Data.Model;
 
 namespace ProcessOrder.ViewModels.Orders
 {

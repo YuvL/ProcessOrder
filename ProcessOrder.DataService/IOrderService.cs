@@ -1,8 +1,8 @@
 using System.Collections.Generic;
 using System.Threading.Tasks;
-using ProcessOrder.DataService.Model;
+using ProcessOrder.Data.Model;
 
-namespace ProcessOrder.DataService
+namespace ProcessOrder.Data
 {
     public interface IOrderService
     {

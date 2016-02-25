@@ -1,4 +1,4 @@
-﻿using ProcessOrder.DataService.Model;
+﻿using ProcessOrder.Data.Model;
 using ProcessOrder.ViewModels.Orders;
 
 namespace ProcessOrder.ViewModels.Factories.Interfaces

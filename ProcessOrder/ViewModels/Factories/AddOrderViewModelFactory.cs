@@ -1,6 +1,6 @@
 using System.Collections.Generic;
 using Microsoft.Practices.Unity;
-using ProcessOrder.DataService.Model;
+using ProcessOrder.Data.Model;
 using ProcessOrder.ViewModels.Factories.Interfaces;
 using ProcessOrder.ViewModels.Orders;
 

@@ -1,7 +1,7 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
-namespace ProcessOrder.DataService.Model
+namespace ProcessOrder.Data.Model
 {
     public abstract class OrderBase
     {

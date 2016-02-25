@@ -1,14 +1,12 @@
 using System;
 using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
-using System.Data.Entity;
 using System.Data.Entity.Migrations;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows;
-using ProcessOrder.DataService.Model;
+using ProcessOrder.Data.Model;
 
-namespace ProcessOrder.DataService
+namespace ProcessOrder.Data
 {
     internal class OrderService : IOrderService
     {
@@ -22,12 +20,11 @@ namespace ProcessOrder.DataService
                     await context.SaveChangesAsync();
                 }
             }
-            catch (ValidationException e)
+            catch (Exception e)
             {
                 MessageBox.Show(e.ToString());
             }
         }
- 
 
         public async Task<List<OrderBase>> GetOrdersAsync()
         {
@@ -35,7 +32,7 @@ namespace ProcessOrder.DataService
             {
                 return await Task.Run(() => GetOrdersImpl());
             }
-            catch (ValidationException e)
+            catch (Exception e)
             {
                 MessageBox.Show(e.ToString());
                 return new List<OrderBase>();

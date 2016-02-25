@@ -132,13 +132,11 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Compile Include="App.xaml.cs">
+    <Compile Include="App.cs">
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Bootstrapper.cs" />
-    <Compile Include="ViewModels\Factories\Interfaces\IOrderProcessorFactory.cs" />
-    <Compile Include="ViewModels\OrderProcessor.cs" />
     <Compile Include="ViewModels\Orders\AddOrderViewModel.cs" />
     <Compile Include="ViewModels\Orders\BuyerOrderViewModel.cs" />
     <Compile Include="ViewModels\Factories\AddOrderViewModelFactory.cs" />
@@ -148,11 +146,11 @@
     <Compile Include="ViewModels\Orders\OrderViewModelBase.cs" />
     <Compile Include="ViewModels\Factories\OrderViewModelFactory.cs" />
     <Compile Include="ViewModels\Orders\SupplierOrderViewModel.cs" />
-    <Compile Include="Views\AddOrderView.xaml.cs">
+    <Compile Include="Views\AddOrderView.cs">
       <DependentUpon>AddOrderView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\BoolenToVisibilityConverter.cs" />
-    <Compile Include="Views\MainWindow.xaml.cs">
+    <Compile Include="Views\MainWindow.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
@@ -176,7 +174,6 @@
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
     <None Include="packages.config" />
-    <None Include="ProcessOrder_TemporaryKey.pfx" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -209,9 +206,13 @@
     </BootstrapperPackage>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\ProcessOrder.DataService\ProcessOrder.DataService.csproj">
+    <ProjectReference Include="..\ProcessOrder.DataService\ProcessOrder.Data.csproj">
       <Project>{27E847DB-3C84-426E-AB54-740B051BB692}</Project>
-      <Name>ProcessOrder.DataService</Name>
+      <Name>ProcessOrder.Data</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ProcessOrder.Processor\ProcessOrder.Processor.csproj">
+      <Project>{3096E93C-2C3F-4D30-9AC9-234D61022768}</Project>
+      <Name>ProcessOrder.Processor</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

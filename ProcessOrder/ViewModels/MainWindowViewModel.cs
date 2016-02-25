@@ -4,8 +4,9 @@ using System.Threading.Tasks;
 using Prism.Commands;
 using Prism.Interactivity.InteractionRequest;
 using Prism.Mvvm;
-using ProcessOrder.DataService;
-using ProcessOrder.DataService.Model;
+using ProcessOrder.Data;
+using ProcessOrder.Data.Model;
+using ProcessOrder.Processor;
 using ProcessOrder.ViewModels.Factories.Interfaces;
 using ProcessOrder.ViewModels.Orders;
 
@@ -53,17 +54,16 @@ namespace ProcessOrder.ViewModels
             await UpdateOrders();
         }
 
-        private async Task UpdateOrders() => await  ShowOrdersExecute();
+        private async Task UpdateOrders() => await ShowOrdersExecute();
 
         private async Task DeleteOrderExecute()
         {
-            var confirmation =
-                await
-                    ConfirmationRequest.RaiseAsync(new Confirmation
-                    {
-                        Content = $"Вы действительно хотите удалить заказ по документу {SelectedOrder.NDoc}?",
-                        Title = "Внимание!"
-                    });
+            var confirmation = await ConfirmationRequest.RaiseAsync(new Confirmation
+            {
+                Content = $"Вы действительно хотите удалить заказ по документу {SelectedOrder.NDoc}?",
+                Title = "Внимание!"
+            });
+
             if (confirmation.Confirmed)
             {
                 _orderService.Delete(SelectedOrder.GetOrder().Id);
@@ -73,11 +73,9 @@ namespace ProcessOrder.ViewModels
 
         private async Task EditOrderExecute()
         {
-            var addResult =
-                await
-                    AddOrEditRequest.RaiseAsync(
-                        _addOrderViewModelFactory.CreateAddOrderViewModel(
-                            _orderService.GetById(SelectedOrder.GetOrder().Id)));
+            var editableOrder = _orderService.GetById(SelectedOrder.GetOrder().Id);
+            var addOrderViewModel = _addOrderViewModelFactory.CreateAddOrderViewModel(editableOrder);
+            var addResult = await AddOrEditRequest.RaiseAsync(addOrderViewModel);
             if (addResult.Confirmed)
             {
                 var order = addResult.GetOrder();

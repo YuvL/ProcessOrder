@@ -1,6 +1,4 @@
-﻿using System.ComponentModel.DataAnnotations;
-
-namespace ProcessOrder.DataService.Model
+﻿namespace ProcessOrder.Data.Model
 {
     public class BuyerOrder : OrderBase
     {

@@ -7,8 +7,8 @@
     <ProjectGuid>{27E847DB-3C84-426E-AB54-740B051BB692}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>ProcessOrder.DataService</RootNamespace>
-    <AssemblyName>ProcessOrder.DataService</AssemblyName>
+    <RootNamespace>ProcessOrder.Data</RootNamespace>
+    <AssemblyName>ProcessOrder.Data</AssemblyName>
     <TargetFrameworkVersion>v4.6</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>

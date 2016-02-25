@@ -1,4 +1,4 @@
-﻿using ProcessOrder.DataService.Model;
+﻿using ProcessOrder.Data.Model;
 
 namespace ProcessOrder.ViewModels.Orders
 {

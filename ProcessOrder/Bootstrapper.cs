@@ -1,7 +1,9 @@
 ﻿using System.Windows;
 using Microsoft.Practices.Unity;
 using Prism.Unity;
-using ProcessOrder.DataService;
+using ProcessOrder.Data;
+using ProcessOrder.Processor;
+using ProcessOrder.Processor.Customizations;
 using ProcessOrder.ViewModels;
 using ProcessOrder.ViewModels.Factories;
 using ProcessOrder.ViewModels.Factories.Interfaces;
@@ -18,6 +20,8 @@ namespace ProcessOrder
             Container.RegisterInstance(OrderServiceFactory.CreateOrderService());
             Container.RegisterType<IOrderViewModelFactory, OrderViewModelFactory>();
             Container.RegisterType<IAddOrderViewModelFactory, AddOrderViewModelFactory>();
+            var orderProcessor = Container.Resolve<OrderProcessorFactory>().CreateOrderProcessor();
+            Container.RegisterInstance(orderProcessor);
         }
 
         protected override DependencyObject CreateShell()
