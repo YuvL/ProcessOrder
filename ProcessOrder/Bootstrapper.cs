@@ -2,12 +2,12 @@
 using Microsoft.Practices.Unity;
 using Prism.Unity;
 using ProcessOrder.DataService;
-using UI.ViewModels;
-using UI.ViewModels.Factories;
-using UI.ViewModels.Factories.Interfaces;
-using UI.Views;
+using ProcessOrder.ViewModels;
+using ProcessOrder.ViewModels.Factories;
+using ProcessOrder.ViewModels.Factories.Interfaces;
+using ProcessOrder.Views;
 
-namespace UI
+namespace ProcessOrder
 {
     internal class Bootstrapper : UnityBootstrapper
     {

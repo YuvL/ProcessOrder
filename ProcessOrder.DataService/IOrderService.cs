@@ -1,12 +1,12 @@
 using System.Collections.Generic;
 using System.Threading.Tasks;
-using ProcessOrder.Model;
+using ProcessOrder.DataService.Model;
 
 namespace ProcessOrder.DataService
 {
     public interface IOrderService
     {
-        Task AddOrderAndSaveAsync(OrderBase order);
+        Task AddOrUpdateAsync(OrderBase order);
         Task<List<OrderBase>> GetOrdersAsync();
     }
 }

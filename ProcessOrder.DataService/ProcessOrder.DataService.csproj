@@ -38,6 +38,7 @@
       <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="PresentationFramework" />
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
@@ -50,15 +51,6 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="IOrderService.cs" />
-    <Compile Include="Migrations\201602221734327_InitialCreate.cs" />
-    <Compile Include="Migrations\201602221734327_InitialCreate.Designer.cs">
-      <DependentUpon>201602221734327_InitialCreate.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201602221747404_RenameOrderBase.cs" />
-    <Compile Include="Migrations\201602221747404_RenameOrderBase.Designer.cs">
-      <DependentUpon>201602221747404_RenameOrderBase.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Model\BuyerOrder.cs" />
     <Compile Include="Model\OrderBase.cs" />
     <Compile Include="Model\OrderStatus.cs" />
@@ -68,17 +60,13 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="App.config" />
+    <None Include="App.config">
+      <SubType>Designer</SubType>
+    </None>
     <None Include="Model\Order.cd" />
-    <None Include="packages.config" />
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="Migrations\201602221734327_InitialCreate.resx">
-      <DependentUpon>201602221734327_InitialCreate.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201602221747404_RenameOrderBase.resx">
-      <DependentUpon>201602221747404_RenameOrderBase.cs</DependentUpon>
-    </EmbeddedResource>
+    <None Include="packages.config">
+      <SubType>Designer</SubType>
+    </None>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

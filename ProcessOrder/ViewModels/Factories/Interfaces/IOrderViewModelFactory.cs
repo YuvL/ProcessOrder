@@ -1,7 +1,8 @@
 using System.Collections.Generic;
-using ProcessOrder.Model;
+using ProcessOrder.DataService.Model;
+using ProcessOrder.ViewModels.Orders;
 
-namespace UI.ViewModels.Factories.Interfaces
+namespace ProcessOrder.ViewModels.Factories.Interfaces
 {
     public interface IOrderViewModelFactory
     {

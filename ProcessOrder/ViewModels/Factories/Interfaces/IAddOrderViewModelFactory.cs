@@ -1,4 +1,6 @@
-﻿namespace UI.ViewModels.Factories.Interfaces
+﻿using ProcessOrder.ViewModels.Orders;
+
+namespace ProcessOrder.ViewModels.Factories.Interfaces
 {
     public interface IAddOrderViewModelFactory
     {

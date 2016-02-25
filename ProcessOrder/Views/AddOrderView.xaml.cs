@@ -3,7 +3,7 @@ using System.Windows;
 using System.Windows.Controls;
 using Prism.Interactivity.InteractionRequest;
 
-namespace UI.Views
+namespace ProcessOrder.Views
 {
     /// <summary>
     /// Interaction logic for AddOrderView.xaml

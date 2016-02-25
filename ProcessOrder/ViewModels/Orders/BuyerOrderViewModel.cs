@@ -1,6 +1,4 @@
-using ProcessOrder.Model;
-
-namespace UI.ViewModels
+namespace ProcessOrder.ViewModels.Orders
 {
     internal class BuyerOrderViewModel : OrderViewModelBase
     {
@@ -15,7 +13,7 @@ namespace UI.ViewModels
 
         public override OrderBase GetOrder()
         {
-            return new BuyerOrder() {Address = Address, FIO = Fio, TotalSum = TotalSum, NDoc = NDoc, Status = OrderStatus};
+            return new BuyerOrder {Address = Address, FIO = Fio, TotalSum = TotalSum, NDoc = NDoc, Status = OrderStatus};
         }
     }
 }

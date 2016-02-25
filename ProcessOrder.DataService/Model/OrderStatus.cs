@@ -1,4 +1,4 @@
-﻿namespace ProcessOrder.Model
+﻿namespace ProcessOrder.DataService.Model
 {
     public enum OrderStatus
     {

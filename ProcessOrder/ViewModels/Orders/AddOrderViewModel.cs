@@ -1,9 +1,8 @@
 ﻿using System.Collections.Generic;
 using Prism.Interactivity.InteractionRequest;
 using Prism.Mvvm;
-using ProcessOrder.Model;
 
-namespace UI.ViewModels
+namespace ProcessOrder.ViewModels.Orders
 {
     public class AddOrderViewModel : BindableBase, IConfirmation
     {

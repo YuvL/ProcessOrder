@@ -1,6 +1,6 @@
 ﻿using System.Windows;
 
-namespace UI
+namespace ProcessOrder
 {
     /// <summary>
     /// Interaction logic for App.xaml

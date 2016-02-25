@@ -1,11 +1,11 @@
-﻿<UserControl x:Class="UI.Views.AddOrderView"
+﻿<UserControl x:Class="ProcessOrder.Views.AddOrderView"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
-             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-             d:DataContext="{d:DesignInstance viewModels:AddOrderViewModel}"
-             xmlns:local="clr-namespace:UI.Views"
-             xmlns:viewModels="clr-namespace:UI.ViewModels"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:viewModels="clr-namespace:ProcessOrder.ViewModels"
+             xmlns:orders="clr-namespace:ProcessOrder.ViewModels.Orders"
+             d:DataContext="{d:DesignInstance orders:AddOrderViewModel}"
              mc:Ignorable="d" 
              Height="300" Width="400">
     <Grid Margin="10">
@@ -16,7 +16,7 @@
             <Style TargetType="{x:Type TextBox}">
                 <Setter Property="Margin" Value="2,2,0,2"/>
             </Style>
-            <DataTemplate DataType="{x:Type viewModels:BuyerOrderViewModel}">
+            <DataTemplate DataType="{x:Type orders:BuyerOrderViewModel}">
                 <Grid VerticalAlignment="Top">
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="Auto"/>
@@ -39,7 +39,7 @@
                     <TextBox Grid.Row="3" Grid.Column="1" Text="{Binding Path=TotalSum}"/>
                 </Grid>
             </DataTemplate>
-            <DataTemplate DataType="{x:Type viewModels:SupplierOrderViewModel}">
+            <DataTemplate DataType="{x:Type orders:SupplierOrderViewModel}">
                 <Grid VerticalAlignment="Top">
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="Auto"/>

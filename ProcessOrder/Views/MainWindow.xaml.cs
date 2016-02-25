@@ -1,6 +1,6 @@
 ﻿using System.Windows;
 
-namespace UI.Views
+namespace ProcessOrder.Views
 {
     /// <summary>
     /// Interaction logic for MainWindow.xaml

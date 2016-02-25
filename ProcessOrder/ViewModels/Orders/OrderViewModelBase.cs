@@ -1,6 +1,4 @@
-﻿using ProcessOrder.Model;
-
-namespace UI.ViewModels
+﻿namespace ProcessOrder.ViewModels.Orders
 {
     public abstract class OrderViewModelBase
     {

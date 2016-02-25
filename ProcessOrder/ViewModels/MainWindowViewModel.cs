@@ -5,9 +5,10 @@ using Prism.Commands;
 using Prism.Interactivity.InteractionRequest;
 using Prism.Mvvm;
 using ProcessOrder.DataService;
-using UI.ViewModels.Factories.Interfaces;
+using ProcessOrder.ViewModels.Factories.Interfaces;
+using ProcessOrder.ViewModels.Orders;
 
-namespace UI.ViewModels
+namespace ProcessOrder.ViewModels
 {
     public class MainWindowViewModel : BindableBase
     {
@@ -35,13 +36,21 @@ namespace UI.ViewModels
         {
             ShowOrdersCommand = DelegateCommand.FromAsyncHandler(ShowOrdersExecute, () => !IsLoading).ObservesProperty(() => IsLoading);
             AddOrderCommand = new DelegateCommand(AddOrderExecute);
-            EditOrderCommand = new DelegateCommand(EditOrderExecute);
-            DeleteOrderCommand = new DelegateCommand(DeleteOrderExecute);
+            EditOrderCommand = new DelegateCommand(EditOrderExecute, () => SelectedOrder!= null).ObservesProperty(() => SelectedOrder);
+            DeleteOrderCommand = new DelegateCommand(DeleteOrderExecute, () => SelectedOrder != null).ObservesProperty(() => SelectedOrder);
         }
 
         private void DeleteOrderExecute() {}
 
-        private void EditOrderExecute() {}
+        private async void EditOrderExecute()
+        {
+            var addResult = await ConfirmationRequest.RaiseAsync(_addOrderViewModelFactory.CreateAddOrderViewModel());
+            if (addResult.Confirmed)
+            {
+                var order = addResult.GetOrder();
+                await _orderService.AddOrUpdateAsync(order);
+            }
+        }
 
         private async void AddOrderExecute()
         {
@@ -49,7 +58,7 @@ namespace UI.ViewModels
             if (addResult.Confirmed)
             {
                 var order = addResult.GetOrder();
-                await _orderService.AddOrderAndSaveAsync(order);
+                await _orderService.AddOrUpdateAsync(order);
             }
         }
 
@@ -62,7 +71,6 @@ namespace UI.ViewModels
         }
 
         private readonly IAddOrderViewModelFactory _addOrderViewModelFactory;
-
         private readonly IOrderService _orderService;
         private readonly IOrderViewModelFactory _orderViewModelFactory;
         private bool _isLoading;

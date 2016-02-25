@@ -1,10 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
 using Microsoft.Practices.Unity;
-using ProcessOrder.Model;
-using UI.ViewModels.Factories.Interfaces;
+using ProcessOrder.DataService.Model;
+using ProcessOrder.ViewModels.Factories.Interfaces;
+using ProcessOrder.ViewModels.Orders;
 
-namespace UI.ViewModels.Factories
+namespace ProcessOrder.ViewModels.Factories
 {
     internal class OrderViewModelFactory : IOrderViewModelFactory
     {
