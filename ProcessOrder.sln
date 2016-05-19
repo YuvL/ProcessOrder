@@ -1,13 +1,13 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
-VisualStudioVersion = 14.0.24720.0
+VisualStudioVersion = 14.0.25123.0
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProcessOrder", "ProcessOrder\ProcessOrder.csproj", "{99C9E82C-C594-446D-AA59-8FFBC43AD226}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProcessOrder.UI", "ProcessOrder.UI\ProcessOrder.UI.csproj", "{99C9E82C-C594-446D-AA59-8FFBC43AD226}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProcessOrder.Data", "ProcessOrder.DataService\ProcessOrder.Data.csproj", "{27E847DB-3C84-426E-AB54-740B051BB692}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProcessOrder.Domain", "ProcessOrder.Domain\ProcessOrder.Domain.csproj", "{3096E93C-2C3F-4D30-9AC9-234D61022768}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProcessOrder.Processor", "ProcessOrder.Processor\ProcessOrder.Processor.csproj", "{3096E93C-2C3F-4D30-9AC9-234D61022768}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProcessOrder.DbContext", "ProcessOrder.DbContext\ProcessOrder.DbContext.csproj", "{27E847DB-3C84-426E-AB54-740B051BB692}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -19,14 +19,14 @@ Global
 		{99C9E82C-C594-446D-AA59-8FFBC43AD226}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{99C9E82C-C594-446D-AA59-8FFBC43AD226}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{99C9E82C-C594-446D-AA59-8FFBC43AD226}.Release|Any CPU.Build.0 = Release|Any CPU
-		{27E847DB-3C84-426E-AB54-740B051BB692}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{27E847DB-3C84-426E-AB54-740B051BB692}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{27E847DB-3C84-426E-AB54-740B051BB692}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{27E847DB-3C84-426E-AB54-740B051BB692}.Release|Any CPU.Build.0 = Release|Any CPU
 		{3096E93C-2C3F-4D30-9AC9-234D61022768}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{3096E93C-2C3F-4D30-9AC9-234D61022768}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3096E93C-2C3F-4D30-9AC9-234D61022768}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{3096E93C-2C3F-4D30-9AC9-234D61022768}.Release|Any CPU.Build.0 = Release|Any CPU
+		{27E847DB-3C84-426E-AB54-740B051BB692}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{27E847DB-3C84-426E-AB54-740B051BB692}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{27E847DB-3C84-426E-AB54-740B051BB692}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{27E847DB-3C84-426E-AB54-740B051BB692}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
